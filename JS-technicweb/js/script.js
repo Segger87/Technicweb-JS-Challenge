@@ -8,12 +8,12 @@ const updateScoreY = document.getElementById('score-y');
 let squareSpeed = 0;
 let xScore = 0;
 let yScore = 0
-var squareLeftCount = 0;
+let squareLeftCount = 0;
 let squareRightCount = 0;
 let squareScoreCount = 0;
 
 //used setInterval to execut the move function every 500ms
-var intervalID = window.setInterval(move, 500);
+const intervalID = window.setInterval(move, 500);
 
 function move(){
   if(squareRightCount === 0){
