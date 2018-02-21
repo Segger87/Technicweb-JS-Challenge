@@ -1,6 +1,5 @@
 body {
-  background-color: green;
-  width: 100%;
+  background-color: red;
 }
 
 h1{
@@ -38,8 +37,8 @@ h1{
   border: solid black 2px;
   position: absolute;
   top: 300px;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 }
 #square-x {
  background-color: blue;
