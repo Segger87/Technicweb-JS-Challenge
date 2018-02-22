@@ -1,6 +1,6 @@
 const squareX = document.getElementById('square-x');
 const squareY = document.getElementById('square-y');
-const container = document.getElementById('container')
+const container = document.getElementById('container');
 const updateScoreX = document.getElementById('score-x');
 const updateScoreY = document.getElementById('score-y');
 
@@ -8,7 +8,7 @@ const updateScoreY = document.getElementById('score-y');
 let squareSpeedX = 0;
 var squareSpeedXrand = randNum(); //obtains a random number via the randNum function
 let squareSpeedY = 0;
-let squareSpeedYrand = randNum();
+var squareSpeedYrand = randNum();
 //score variables
 let xScore = 0;
 let yScore = 0
@@ -65,7 +65,7 @@ function move(){
       yScore += 1;
       updateScoreY.innerHTML = 'Vertical Score ' + yScore;
       squareY.style.backgroundColor = 'orange';
-    }if(squareScoreCountY < 49 || squareScoreCountY > 51){
+    }  if(squareScoreCountY < 49 || squareScoreCountY > 51){
         squareY.style.backgroundColor = 'red';
     }
 }
