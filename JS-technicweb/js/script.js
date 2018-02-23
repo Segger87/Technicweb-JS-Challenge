@@ -6,9 +6,9 @@ const updateScoreY = document.getElementById('score-y');
 
 //speed variables
 let squareSpeedX = 0;
-var squareSpeedXrand = randNum(); //obtains a random number via the randNum function
+let squareSpeedXrand = randNum(); //obtains a random number via the randNum function
 let squareSpeedY = 0;
-var squareSpeedYrand = randNum();
+let squareSpeedYrand = randNum();
 //score variables
 let xScore = 0;
 let yScore = 0
@@ -23,7 +23,7 @@ let squareScoreCountX = 0;
 let squareScoreCountY = 0;
 
 //generates a random number on document load
-function randNum(min, max){
+function randNum(){
   return Math.floor(Math.random() * 2) + 1;
 }
 window.onload = randNum();
@@ -43,12 +43,12 @@ function move(){
     squareScoreCountX = squareSpeedX;
     squareX.style.left= squareSpeedX + '%';
     squareRightCount = squareSpeedX;
-  }  if(squareScoreCountX == 50){
+  } if(squareScoreCountX == 50){
     xScore += 1;
     updateScoreX.innerHTML = 'Horizontal Score ' + xScore;
-      squareX.style.backgroundColor = 'green';
+    squareX.style.backgroundColor = 'green';
   } if(squareScoreCountX < 49 || squareScoreCountX > 51){
-      squareX.style.backgroundColor = 'blue';
+    squareX.style.backgroundColor = 'blue';
   }
   //if statments for vertical square
    if(squareBottomCount === 0){
@@ -61,12 +61,12 @@ function move(){
       squareScoreCountY = squareSpeedY;
       squareY.style.top= squareSpeedY + '%';
       squareBottomCount = squareSpeedY;
-    }  if(squareScoreCountY == 50){
+    } if(squareScoreCountY == 50){
       yScore += 1;
       updateScoreY.innerHTML = 'Vertical Score ' + yScore;
       squareY.style.backgroundColor = 'orange';
-    }  if(squareScoreCountY < 49 || squareScoreCountY > 51){
-        squareY.style.backgroundColor = 'red';
+    } if(squareScoreCountY < 49 || squareScoreCountY > 51){
+      squareY.style.backgroundColor = 'red';
     }
 }
 
