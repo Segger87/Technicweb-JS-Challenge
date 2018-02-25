@@ -28,8 +28,8 @@ function randNum(){
 }
 window.onload = randNum();
 
-//used setInterval to execute the move function every 500ms
-const intervalID = window.setInterval(move, 500);
+//used setInterval to execute the move function every 100ms
+const intervalID = window.setInterval(move, 100);
 
 function move(){
   //if statements for horizontal square
