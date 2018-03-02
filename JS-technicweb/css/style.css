@@ -1,5 +1,7 @@
-body {
+html, body {
   background-color: red;
+  width: 100%;
+  margin: 0;
 }
 
 h1{
@@ -19,6 +21,7 @@ h1{
   width: 100%;
   margin: 0 auto;
   padding: 0;
+  overflow: hidden;
 }
 .score-y{
   position: absolute;
@@ -42,8 +45,7 @@ h1{
 }
 #square-x {
  background-color: blue;
- left: 0;
- right: 0;
+ border: solid black 5px;
 }
 
 #square-y {
@@ -51,4 +53,5 @@ h1{
   left: 50%;
   top: 0;
   bottom: 0;
+  border: solid black 5px;
 }
