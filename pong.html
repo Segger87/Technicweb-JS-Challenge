@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+<body>
+
+<div id="wrap">
+
+  <h1 class="title">PONG</h1>
+
+  <div id="input">
+    <h5>Player 1 Enter your name:</h5>
+      <input type="text" id="nameEntry">
+        <h5>Player 2 Enter your name:</h5>
+          <input type="text" id="nameEntry2">
+  </div>
+
+  <div class=btnWrap>
+      <button id="btn">Start</button>
+  </div>
+</div>
+
+  <canvas id="myCanvas" width="800" height="400"></canvas>
+
+  <div id="gameOver">
+    <h1 id="winner"></h1>
+    <button id="playAgain">Play Again</button>
+  </div>
+
+<script src="pongRemake.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: black;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  width: 100%;
+}
+canvas {
+  background: black;
+  display: block;
+  margin: 0 auto;
+  display: none;
+  margin-top: 150px;
+  border: solid white 5px;
+}
+.title {
+  text-align: center;
+  font-size: 5em;
+  padding-top: 200px;
+}
+#input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#nameEntry,
+#nameEntry2 {
+  padding: 5px 40px;
+  margin: 20px;
+}
+.btnWrap {
+  display: flex;
+  justify-content: center;
+}
+#btn,
+#playAgain {
+  margin-top: 20px;
+  padding: 10px 40px;
+  background-color: white;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1em;
+}
+#gameOver
+ {
+  display: none;
+  text-align: center;
+  margin-top: 20%;
+}

@@ -64,7 +64,7 @@ function move() {
     squareY.style.top = squareSpeedY + "px";
     squareTopCount = squareSpeedY;
   }
-  if (squareTopCount === 558) {
+  if (squareTopCount === 556) {
     squareSpeedY -= squareSpeedYrand;
     squareScoreCountY = squareSpeedY;
     squareY.style.top = squareSpeedY + "px";
