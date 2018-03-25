@@ -3,23 +3,24 @@ const ctx = canvas.getContext("2d");
 const player1 = document.getElementById('nameEntry');
 const player2 = document.getElementById('nameEntry2');
 const wrap = document.getElementById("wrap");
-const button = document.getElementById('btn');
+const startTheGame = document.getElementById('btn');
 const winner = document.getElementById('winner');
 const playAgain = document.getElementById('playAgain');
 const gameOver = document.getElementById('gameOver');
 const ballRadius = 5;
-let x = canvas.width / 2;
-let y = canvas.height - 30;
-let dx = 5;
-let dy = -5;
 const paddleHeight = 75;
 const paddleWidth = 10;
+let x = canvas.width / 2;
+let y = canvas.height - 30;
+//Ball Speed
+let dx = 4.5;
+let dy = -4.5;
 let paddle1 = (canvas.height / 2) - 36.5;
 let paddle2 = (canvas.height / 2) - 36.5;
-let upPressed = false;
-let downPressed = false;
-let upPressedY = false;
-let downPressedY = false;
+let upPressed1 = false;
+let downPressed1 = false;
+let upPressed2 = false;
+let downPressed2 = false;
 let score1 = 0;
 let score2 = 0;
 
@@ -27,40 +28,45 @@ playAgain.addEventListener('click', () => {
   document.location.reload();
 });
 
-button.addEventListener('click', () => {
+startTheGame.addEventListener('click', () => {
   canvas.style.display="block";
-  button.style.display="none";
+  startTheGame.style.display="none";
   wrap.style.display="none";
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
+//Keys for gameplay - A/Z & Up/Down
 function keyDownHandler(e) {
   if (e.keyCode == 38) {
-    upPressed = true;
+    upPressed1 = true;
   }
   if (e.keyCode == 40) {
-    downPressed = true;
+    downPressed1 = true;
   }
   if (e.keyCode == 65) {
-    upPressedY = true;
+    upPressed2 = true;
   }
   if (e.keyCode == 90) {
-    downPressedY = true;
+    downPressed2 = true;
+  }
+  if(e.keyCode == 32) {
+    dx +=1;
+    dy +=1;
   }
 }
 function keyUpHandler(e) {
   if (e.keyCode == 38) {
-    upPressed = false;
+    upPressed1 = false;
   }
   if (e.keyCode == 40) {
-    downPressed = false;
+    downPressed1 = false;
   }
   if (e.keyCode == 65) {
-    upPressedY = false;
+    upPressed2 = false;
   }
   if (e.keyCode == 90) {
-    downPressedY = false;
+    downPressed2 = false;
   }
 }
 
@@ -74,12 +80,6 @@ function drawBall() {
 function drawPaddle() {
   ctx.beginPath();
   ctx.rect(0, paddle1, paddleWidth, paddleHeight);
-  ctx.fillStyle = "white";
-  ctx.fill();
-  ctx.closePath();
-}
-function drawPaddle2() {
-  ctx.beginPath();
   ctx.rect(790, paddle2, paddleWidth, paddleHeight);
   ctx.fillStyle = "white";
   ctx.fill();
@@ -88,7 +88,7 @@ function drawPaddle2() {
 function drawScore() {
   ctx.font = "16px Arial";
   ctx.fillStyle = "white";
-  ctx.fillText(player1.value + " " + score1, 20, 20);
+  ctx.fillText(player1.value + " " + score1, 50, 20);
   ctx.fillText(player2.value + " " + score2, 700, 20);
 }
 function drawNet() {
@@ -99,13 +99,12 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawBall();
   drawPaddle();
-  drawPaddle2();
   drawScore();
   drawNet();
 
-  //Left wall check
+  //Left wall
   if (x + dx <= ballRadius) {
-    //Player 1 paddle collision test
+    //Player 1 paddle collision
     if (y > paddle1 && y < paddle1 + paddleHeight) {
       dx = -dx;
     } else {
@@ -125,7 +124,7 @@ function draw() {
 
   //Right wall check
   if (x + dx >= canvas.width - ballRadius) {
-    //Player 2 paddle collision test
+    //Player 2 paddle collision
     if (y > paddle2 && y < paddle2 + paddleHeight) {
       dx = -dx;
     } else {
@@ -142,20 +141,20 @@ function draw() {
       }
     }
   }
-
+  //ensures ball bounces back off top and bottom walls
   if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
     dy = -dy;
   }
-  if (downPressed && paddle2 < canvas.height - paddleHeight) {
+  if (downPressed1 && paddle2 < canvas.height - paddleHeight) {
     paddle2 += 5;
   }
-  if (upPressed && paddle2 > 0) {
+  if (upPressed1 && paddle2 > 0) {
     paddle2 -= 5;
   }
-  if (downPressedY && paddle1 < canvas.height - paddleHeight) {
+  if (downPressed2 && paddle1 < canvas.height - paddleHeight) {
     paddle1 += 5;
   }
-  if (upPressedY && paddle1 > 0) {
+  if (upPressed2 && paddle1 > 0) {
     paddle1 -= 5;
   }
 
